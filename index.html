@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yarnitt - Crochet Items and Patterns</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+  <link rel="icon" href="https://i.ibb.co/HrQQr6k/logo.jpg" type="image/x-icon">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+  <style>
+    body {
+      background: #D0E099;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+
+    .container {
+      padding: 2rem;
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: #92D965;
+    }
+
+    p {
+      color: #5a5a5a;
+    }
+
+    img {
+      border: 2px solid #92D965;
+      border-radius: 10px;
+    }
+
+    nav {
+      background: #92D965;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav img {
+      height: 50px;
+      width: auto;
+    }
+
+    footer {
+      background: #92D965;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .gsap-animate {
+      opacity: 0;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      max-width: 500px;
+      text-align: center;
+    }
+
+    .modal a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 1rem 0;
+      color: #92D965;
+      text-decoration: none;
+    }
+
+    .modal img {
+      height: 24px;
+      width: 24px;
+      margin-right: 8px;
+    }
+
+    .close-btn {
+      background: #92D965;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .close-btn:hover {
+      background: #75b34b;
+    }
+
+    .slider {
+      position: relative;
+      max-width: 100%;
+      margin: 2rem 0;
+    }
+
+    .slides {
+      display: flex;
+      overflow: hidden;
+    }
+
+    .slides img {
+      width: 100%;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .prev,
+    .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+    }
+
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .prev:hover,
+    .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="container-fluid">
+    <ul>
+      <li><img src="https://i.ibb.co/HrQQr6k/logo.jpg" alt="Yarnitt Logo"></li>
+      <li><strong>Yarnitt</strong></li>
+    </ul>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Shop</a></li>
+      <li><a href="#custom-order">Custom Order</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#" id="info-link">Info</a></li>
+    </ul>
+  </nav>
+  <main class="container">
+    <div class="grid">
+      <section class="gsap-animate">
+        <hgroup>
+          <h2>Welcome to Yarnitt!</h2>
+          <h3>Your go-to place for crochet items and patterns</h3>
+        </hgroup>
+        <p>Explore a wide range of handmade crochet items including plushies, hats, keychains, sweaters, and more!</p>
+        <div class="slider">
+          <div class="slides">
+            <img src="https://i.ibb.co/Bg4sTKQ/img1.jpg" alt="Crochet item 1">
+            <img src="https://i.ibb.co/V2KFRC8/img2.jpg" alt="Crochet item 2">
+          </div>
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <figure>
+          <img src="https://i.ibb.co/Ybn66Gw/Whats-App-Image-2024-05-25-at-20-34-13-6908cdb9.jpg" alt="Crochet items">
+          <figcaption><a href="https://unsplash.com/s/photos/crochet" target="_blank">Photo by Naveera Ghoury</a>
+          </figcaption>
+        </figure>
+        <h3>Our Collections</h3>
+        <p>We offer a variety of crochet items that cater to different tastes and preferences. Each piece is crafted with love and attention to detail.</p>
+        <h3>Custom Orders</h3>
+        <p>Looking for something unique? We take custom orders! Let us know what you have in mind, and we'll bring your vision to life.</p>
+      </section>
+    </div>
+  </main>
+  <section id="custom-order" aria-label="Custom Order Form">
+    <div class="container">
+      <article class="gsap-animate">
+        <hgroup>
+          <h2>Place a Custom Order</h2>
+          <h3>Tell us your preferences</h3>
+        </hgroup>
+        <form action="https://formspree.io/f/xnqeyojd" method="POST" class="grid">
+          <input type="text" id="name" name="name" placeholder="Your Name" aria-label="Your Name" required />
+          <input type="email" id="email" name="email" placeholder="Email Address" aria-label="Email Address" required />
+          <input type="text" id="size" name="size" placeholder="Size" aria-label="Size" required />
+          <input type="text" id="color" name="color" placeholder="Color" aria-label="Color" required />
+          <input type="number" id="quantity" name="quantity" placeholder="Quantity" aria-label="Quantity" required />
+          <select id="category" name="category" aria-label="Category" required>
+            <option value="plushies">Plushies</option>
+            <option value="hats">Hats</option>
+            <option value="keychains">Keychains</option>
+            <option value="sweaters">Sweaters</option>
+            <option value="pets">Pets</option>
+            <option value="flowers">Flowers</option>
+            <option value="other">Other</option>
+          </select>
+          <textarea id="details" name="details" placeholder="Additional Details" aria-label="Additional Details" rows="4"></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </article>
+    </div>
+  </section>
+  <section id="contact" aria-label="Contact Form">
+    <div class="container">
+      <article class="gsap-animate">
+        <hgroup>
+          <h2>Contact Us</h2>
+          <h3>We'd love to hear from you</h3>
+        </hgroup>
+        <form action="https://formspree.io/f/xnqeyojd" method="POST" class="grid">
+          <input type="text" id="firstname" name="firstname" placeholder="First Name" aria-label="First Name" required />
+          <input type="email" id="email" name="email" placeholder="Email Address" aria-label="Email Address" required />
+          <textarea id="message" name="message" placeholder="Your Message" aria-label="Your Message" rows="4"></textarea>
+          <button type="submit">Send</button>
+        </form>
+      </article>
+    </div>
+  </section>
+  <footer class="container">
+    <small><a href="#">Privacy Policy</a> • <a href="#">Terms of Service</a></small>
+  </footer>
+  <div class="overlay" id="overlay">
+    <div class="modal">
+      <h2>Follow Us</h2>
+      <a href="https://www.youtube.com/@yarnitt" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube Logo"> YouTube</a>
+      <a href="https://www.instagram.com/yarnitt" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo"> Instagram</a>
+      <a href="https://ribblr.com/shop/yarnitt" target="_blank"><img src="https://ribblr.com/favicon.ico" alt="Ribblr Logo"> Ribblr</a>
+      <button class="close-btn" id="close-btn">Close</button>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      gsap.to('.gsap-animate', { opacity: 1, duration: 2, stagger: 0.5 });
+
+      const infoLink = document.getElementById('info-link');
+      const overlay = document.getElementById('overlay');
+      const closeBtn = document.getElementById('close-btn');
+
+      infoLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        overlay.classList.add('active');
+      });
+
+      closeBtn.addEventListener('click', () => {
+        overlay.classList.remove('active');
+      });
+
+      let slideIndex = 0;
+      showSlides(slideIndex);
+
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
+      }
+
+      function showSlides(n) {
+        const slides = document.querySelectorAll('.slides img');
+        if (n >= slides.length) slideIndex = 0;
+        if (n < 0) slideIndex = slides.length - 1;
+        for (let slide of slides) {
+          slide.style.transform = `translateX(${-slideIndex * 100}%)`;
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
